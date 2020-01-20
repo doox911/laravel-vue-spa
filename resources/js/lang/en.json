@@ -39,5 +39,8 @@
   "directories": "Directories",
   "levels": "Levels",
   "statuses": "Statuses",
-  "users_pay": "Employee salary"
+  "users_pay": "Employee salary",
+  "levels_directory": "Levels directory",
+  "statuses_directory": "Statuses directory",
+  "users_pay_directory": "User salary directory"
 }

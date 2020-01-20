@@ -39,5 +39,8 @@
   "directories": "Справочники",
   "levels": "Уровни",
   "statuses": "Статусы",
-  "users_pay": "Зарплаты сотрудников"
+  "users_pay": "Зарплаты сотрудников",
+  "levels_directory": "Справочник уровней",
+  "statuses_directory": "Справочник статусов",
+  "users_pay_directory": "Справочник зарплат"
 }

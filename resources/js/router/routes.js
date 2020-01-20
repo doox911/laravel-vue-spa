@@ -22,16 +22,10 @@ export default [
     ] },
 
   // Справочники (directory)
-  {
-    path: '/directories',
-    name: 'directories',
-    component: page('directories/index.vue'),
-    children: [
-      { path: 'levels', name: 'directories.levels', component: page('directories/levels/index.vue') },
-      { path: 'statuses', name: 'directories.statuses', component: page('directories/statuses/index.vue') },
-      { path: 'users_pay', name: 'directories.users_pay', component: page('directories/users_pay/index.vue') }
-    ]
-  },
+  { path: '/directories', name: 'directories', component: page('directories/index.vue') },
+  { path: '/directories/levels', name: 'directories.levels', component: page('directories/levels/index.vue') },
+  { path: '/directories/statuses', name: 'directories.statuses', component: page('directories/statuses/index.vue') },
+  { path: '/directories/users_pay', name: 'directories.users_pay', component: page('directories/users_pay/index.vue') },
 
   { path: '*', component: page('errors/404.vue') }
 ]
