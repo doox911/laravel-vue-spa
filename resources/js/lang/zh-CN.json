@@ -37,5 +37,15 @@
   "users_pay": "Employee salary",
   "levels_directory": "Levels directory",
   "statuses_directory": "Statuses directory",
-  "users_pay_directory": "User salary directory"
+  "users_pay_directory": "User salary directory",
+  "name": "Name",
+  "type": "Type",
+  "updated_at": "Updated",
+  "created_at": "Created",
+  "add": "Add",
+  "edit": "Edit",
+  "remove": "Remove",
+  "close": "Close",
+  "save": "Save",
+  "level": "level"
 }

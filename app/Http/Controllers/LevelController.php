@@ -7,79 +7,84 @@ use Illuminate\Http\Request;
 
 class LevelController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
+  /**
+   * Display a listing of the resource.
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function index()
+  {
+    return response()->json(Level::all());
+  }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+  /**
+   * Show the form for creating a new resource.
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function create()
+  {
+    //
+  }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+  /**
+   * Store a newly created resource in storage.
+   *
+   * @param \Illuminate\Http\Request $request
+   * @return \Illuminate\Http\Response
+   */
+  public function store(Request $request)
+  {
+    $level = new Level;
+    $level->name = $request->name;
+    $level->level_type = $request->type;
+    $level->save();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Level  $taksLevel
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Level $taksLevel)
-    {
-        //
-    }
+    return response()->json($level);
+  }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Level  $taksLevel
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Level $taksLevel)
-    {
-        //
-    }
+  /**
+   * Display the specified resource.
+   *
+   * @param \App\Level $taksLevel
+   * @return \Illuminate\Http\Response
+   */
+  public function show(Level $taksLevel)
+  {
+    //
+  }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Level  $taksLevel
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Level $taksLevel)
-    {
-        //
-    }
+  /**
+   * Show the form for editing the specified resource.
+   *
+   * @param \App\Level $taksLevel
+   * @return \Illuminate\Http\Response
+   */
+  public function edit(Level $taksLevel)
+  {
+    //
+  }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Level  $taksLevel
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Level $taksLevel)
-    {
-        //
-    }
+  /**
+   * Update the specified resource in storage.
+   *
+   * @param \Illuminate\Http\Request $request
+   * @param \App\Level $taksLevel
+   * @return \Illuminate\Http\Response
+   */
+  public function update(Request $request, Level $taksLevel)
+  {
+    //
+  }
+
+  /**
+   * Remove the specified resource from storage.
+   *
+   * @param \App\Level $taksLevel
+   * @return \Illuminate\Http\Response
+   */
+  public function destroy(Level $taksLevel)
+  {
+    //
+  }
 }

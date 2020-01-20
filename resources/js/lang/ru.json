@@ -42,5 +42,15 @@
   "users_pay": "Зарплаты сотрудников",
   "levels_directory": "Справочник уровней",
   "statuses_directory": "Справочник статусов",
-  "users_pay_directory": "Справочник зарплат"
+  "users_pay_directory": "Справочник зарплат",
+  "name": "Имя",
+  "type": "Тип",
+  "updated_at": "Обвновлён",
+  "created_at": "Создан",
+  "add": "Добавить",
+  "edit": "Реадктировать",
+  "remove": "Удалить",
+  "close": "Закрыть",
+  "save": "Сохранить",
+  "level": "уровень"
 }
