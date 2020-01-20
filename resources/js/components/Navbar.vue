@@ -12,9 +12,28 @@
       <div id="navbarToggler" class="collapse navbar-collapse">
         <ul class="navbar-nav">
           <locale-dropdown />
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li> -->
+        </ul>
+
+        <ul class="navbar-nav">
+          <!-- Authenticated -->
+          <li v-if="user" class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-dark"
+               href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+            >
+              {{ $t('directories') }}
+            </a>
+            <div class="dropdown-menu">
+              <router-link :to="{ name: 'directories.levels' }" class="dropdown-item pl-3">
+                {{ $t('levels') }}
+              </router-link>
+              <router-link :to="{ name: 'directories.statuses' }" class="dropdown-item pl-3">
+                {{ $t('statuses') }}
+              </router-link>
+              <router-link :to="{ name: 'directories.users_pay' }" class="dropdown-item pl-3">
+                {{ $t('users_pay') }}
+              </router-link>
+            </div>
+          </li>
         </ul>
 
         <ul class="navbar-nav ml-auto">

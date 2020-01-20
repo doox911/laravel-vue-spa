@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserPaysTable extends Migration
+class CreateTaskCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateUserPaysTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_pays', function (Blueprint $table) {
+        Schema::create('task_comments', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('task_id');
+            $table->foreign('task_id')->references('id')->on('tasks');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('pay')->default('0');
+            $table->longText('text');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -30,6 +32,6 @@ class CreateUserPaysTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_pays');
+        Schema::dropIfExists('task_comments');
     }
 }

@@ -21,5 +21,17 @@ export default [
       { path: 'password', name: 'settings.password', component: page('settings/password.vue') }
     ] },
 
+  // Справочники (directory)
+  {
+    path: '/directories',
+    name: 'directories',
+    component: page('directories/index.vue'),
+    children: [
+      { path: 'levels', name: 'directories.levels', component: page('directories/levels/index.vue') },
+      { path: 'statuses', name: 'directories.statuses', component: page('directories/statuses/index.vue') },
+      { path: 'users_pay', name: 'directories.users_pay', component: page('directories/users_pay/index.vue') }
+    ]
+  },
+
   { path: '*', component: page('errors/404.vue') }
 ]

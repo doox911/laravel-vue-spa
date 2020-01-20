@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Responsible;
+use App\Task;
 use Illuminate\Http\Request;
 
-class ResponsibleController extends Controller
+class TaskController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class ResponsibleController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Responsible  $responsible
+     * @param  \App\Task  $taks
      * @return \Illuminate\Http\Response
      */
-    public function show(Responsible $responsible)
+    public function show(Task $taks)
     {
         //
     }
@@ -52,10 +52,10 @@ class ResponsibleController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Responsible  $responsible
+     * @param  \App\Task  $taks
      * @return \Illuminate\Http\Response
      */
-    public function edit(Responsible $responsible)
+    public function edit(Task $taks)
     {
         //
     }
@@ -64,10 +64,10 @@ class ResponsibleController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Responsible  $responsible
+     * @param  \App\Task  $taks
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Responsible $responsible)
+    public function update(Request $request, Task $taks)
     {
         //
     }
@@ -75,10 +75,10 @@ class ResponsibleController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Responsible  $responsible
+     * @param  \App\Task  $taks
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Responsible $responsible)
+    public function destroy(Task $taks)
     {
         //
     }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateResponsiblesTable extends Migration
+class CreateLevelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class CreateResponsiblesTable extends Migration
      */
     public function up()
     {
-        Schema::create('responsibles', function (Blueprint $table) {
+        Schema::create('levels', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name', 255);
+            $table->string('level_type', 255);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateResponsiblesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('responsibles');
+        Schema::dropIfExists('levels');
     }
 }
