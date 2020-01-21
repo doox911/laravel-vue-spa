@@ -11,7 +11,7 @@ class RulesException extends Exception
   protected $code;
   protected $previous;
 
-  public function __construct(string $user_message, string $system_message, int $code, Exception $previous = null)
+  public function __construct(string $user_message, string $system_message, int $code = 500, Exception $previous = null)
   {
 
     $this->user_message = $user_message;

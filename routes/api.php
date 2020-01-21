@@ -42,7 +42,7 @@ Route::group(['middleware' => 'auth:api'], function () {
 
   Route::get('get_level_types', 'TypeController@getLevelTypes');
 
-  Route::group(['middleware' => 'level_middleware'], function () {
+  Route::group(['middleware' => 'directories_middleware'], function () {
     Route::resource('levels', 'LevelController');
   });
 

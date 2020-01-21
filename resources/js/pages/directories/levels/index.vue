@@ -7,7 +7,6 @@
         class="btn btn-success"
         data-toggle="modal"
         data-target="#add_level"
-        @click="store = true"
       >
         {{ $t('add') }}
       </button>
@@ -20,8 +19,8 @@
         <th scope="col">{{ $t('type') }}</th>
         <th scope="col">{{ $t('updated_at') }}</th>
         <th scope="col">{{ $t('created_at') }}</th>
-        <th scope="col">{{ $t('edit') }}</th>
-        <th scope="col">{{ $t('remove') }}</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
       </tr>
       </thead>
       <tbody>
@@ -31,8 +30,26 @@
         <td>{{ getTypeName(level.level_type) }}</td>
         <td>{{ getCurrentDate(level.updated_at) }}</td>
         <td>{{ getCurrentDate(level.created_at) }}</td>
-        <td></td>
-        <td></td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-link text-warning"
+            @click="() => { selected_id = level.id; edit() }"
+            data-toggle="modal"
+            data-target="#add_level"
+          >
+            {{ $t('edit') }}
+          </button>
+        </td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-link text-danger"
+            @click="() => { selected_id = level.id; del() }"
+          >
+            {{ $t('remove') }}
+          </button>
+        </td>
       </tr>
       </tbody>
     </table>
@@ -65,7 +82,7 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ $t('close') }}</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="clear">{{ $t('close') }}</button>
             <button type="button" class="btn btn-primary"  data-dismiss="modal" @click="save">{{ $t('save') }}</button>
           </div>
         </div>
@@ -85,9 +102,9 @@ export default {
     return {
       levels: [],
       level_types: [],
+      selected_id: 0,
       selected_name: '',
       selected_type: '',
-      store: false
     }
   },
   mounted () {
@@ -128,17 +145,20 @@ export default {
       })
     },
     save () {
-      if (this.store) this.create()
+      if (!this.selected_id) this.create()
       else this.update()
-      this.store = false
+    },
+    edit () {
+      const el = this.levels.find(el => el.id === this.selected_id)
+      this.selected_name = el.name
+      this.selected_type = el.level_type
     },
     create () {
       window.axios.post('/api/levels', {
         name: this.selected_name,
-        type: this.selected_type
+        level_type: this.selected_type
       }).then(response => {
-        console.log(response.data);
-        this.levels.push(response.data);
+        this.levels.push(response.data)
       }).catch(error => {
         console.log(error.data)
       }).finally(() => {
@@ -146,7 +166,35 @@ export default {
       })
     },
     update () {
+      window.axios.put(`/api/levels/${this.selected_id}`, {
+        id: this.selected_id,
+        name: this.selected_name,
+        level_type: this.selected_type
+      }).then(response => {
+        const index = this.levels.findIndex(el => el.id === this.selected_id)
+        this.levels.splice(index,1, response.data)
+        this.clear()
+      }).catch(error => {
+        console.log(error.data)
+      }).finally(() => {
 
+      })
+    },
+    del () {
+      window.axios.delete(`/api/levels/${this.selected_id}`).then(response => {
+        const index = this.levels.findIndex(el => el.id === this.selected_id);
+        this.levels.splice(index,1);
+        this.clear()
+      }).catch(error => {
+        console.log(error.data)
+      }).finally(() => {
+
+      })
+    },
+    clear () {
+      this.selected_id = 0
+      this.selected_name = ''
+      this.selected_type = ''
     }
   }
 }

@@ -12,6 +12,7 @@ class Level extends Model
   protected $fillable = [
     'name',
     'level_type',
+    'updated_at'
   ];
 
   protected $hidden = [

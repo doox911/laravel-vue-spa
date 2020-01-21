@@ -37,7 +37,7 @@ class LevelController extends Controller
   {
     $level = new Level;
     $level->name = $request->name;
-    $level->level_type = $request->type;
+    $level->level_type = $request->level_type;
     $level->save();
 
     return response()->json($level);
@@ -72,9 +72,15 @@ class LevelController extends Controller
    * @param \App\Level $taksLevel
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, Level $taksLevel)
+  public function update(Request $request, Level $level)
   {
-    //
+    $level->id = $request->id;
+    $level->name = $request->name;
+    $level->level_type = $request->level_type;
+
+    $level->save();
+
+    return response()->json($level);
   }
 
   /**
@@ -83,8 +89,8 @@ class LevelController extends Controller
    * @param \App\Level $taksLevel
    * @return \Illuminate\Http\Response
    */
-  public function destroy(Level $taksLevel)
+  public function destroy(Level $level)
   {
-    //
+//    $level->delete();
   }
 }
